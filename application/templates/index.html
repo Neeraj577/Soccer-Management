@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %}
+<!-- Method 1: Direct path (not recommended) -->
+<div class="text-center">
+    <img src="/static/images/ball.jpg" alt="My Image" width="30%" style="display: block; 
+    width: 30%; 
+    margin-left: auto; 
+    margin-right: auto;
+    border: 1px solid #ddd;">
+</div>
+
+
+<div class="alert alert-success">
+
+    <h5>Team Statistics</h5>
+    <div class="d-flex justify-content-between">
+        <span>Total Players: <strong>{{ players|length }}</strong></span>
+        <span>Forwards: <strong>{{ players|selectattr('position', 'equalto', 'Forward')|list|length }}</strong></span>
+        <span>Midfielders: <strong>{{ players|selectattr('position', 'equalto', 'Midfielder')|list|length }}</strong></span>
+        <span>Defenders: <strong>{{ players|selectattr('position', 'equalto', 'Defender')|list|length }}</strong></span>
+        <span>GoalKeeper: <strong>{{ players|selectattr('position', 'equalto', 'Goalkeeper')|list|length }}</strong></span>
+    </div>
+
+</div>
+
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">Try links below for free link to live matches.</h2>
+    <div class="iframe-container rounded shadow">
+        <iframe class="responsive-iframe" src="https://soccer-100.com/" title="Embedded Website" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+    </div>
+
+</div>
+
+
+{% include 'map.html' %}
+
+
+
+<h3>This will be the homepage</h3>
+
+{% endblock %}

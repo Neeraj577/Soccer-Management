@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block title %}Player Form{% endblock %} {% block content %}
+<div class="container mt-5 border">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Player Registration</h2>
+
+            <form method="post" action="{{url_for('add')}}">
+                <!-- Name Field -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+
+                <!-- Position Dropdown -->
+                <div class="mb-3">
+                    <label for="position" class="form-label">Position</label>
+                    <select class="form-select" id="position" name="position" required>
+                        <option value="" disabled selected>Select your position</option>
+                        <option value="Goalkeeper">Goalkeeper (GK)</option>
+                        <option value="Defender">Defender (DEF)</option>
+                        <option value="Midfielder">Midfielder (MID)</option>
+                        <option value="Forward">Forward (FW)</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="playDay" class="form-label">Day  </label>
+                    <select class="form-select" id="day" name="day" required>
+                        <option value="" disabled selected>Select your position</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Available All">Open to all</option>
+                    
+                    </select>
+                </div>
+
+                <!-- Favorite Club -->
+                <div class="mb-3">
+                    <label for="fav_club" class="form-label">Favorite Club</label>
+                    <input type="text" class="form-control" id="fav_club" name="fav_club" required>
+                </div>
+
+
+                <!-- Age Group Select Dropdown -->
+                <div class="mb-3">
+                    <label for="age_group_select" class="form-label">Age Group</label>
+                    <select class="form-select" id="age_group_select" name="age_group" required>
+                        <option value="" disabled selected>Select your Age Category</option>
+                        <option value="young">Open Age</option>
+                        <option value="35+">35+</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

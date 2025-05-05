@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Bhakundo</title>
+    <meta name="description" content="If=edge">
+
+    <style>
+        .footer {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+
+<body style="background-color: antiquewhite;">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="{{ url_for('home') }}"> Bhakundo </a>
+
+
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+            <a class="nav-item nav-link" href="{{ url_for('add') }}">AddPlayers</a>
+            <a class="nav-item nav-link" href="#"> Dashboard</a>
+        </div>
+
+    </nav>
+    <!-- Add this near the top of your base.html -->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %} {% endif %} {% endwith %}
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            {% block content %}
+            <h2>Main Content is here.</h2>
+            {% endblock %}
+
+
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Footer (Common to all pages) -->
+    {% include 'footer.html' %}
+</body>
+
+</html>
